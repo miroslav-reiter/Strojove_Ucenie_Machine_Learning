@@ -125,10 +125,77 @@ print(X_train.shape, X_test.shape)
 <a name="linearna-regresia"></a>
 ## 📈 2. Lineárna regresia v scikit-learn
 
-- Teória: čo je lineárna rovnica, koeficienty a intercept
-- Tréning modelu: `LinearRegression()`
-- Vyhodnotenie: R², MSE
-- Vizualizácia predikcie
+Lineárna regresia je základný model na predikciu spojitých hodnôt. Jej cieľom je nájsť optimálnu priamku (alebo hyperrovinu), ktorá minimalizuje chybu medzi predikovanými a skutočnými hodnotami.
+
+### 📐 Rovnica lineárnej regresie
+
+\[ y = w_0 + w_1 x_1 + w_2 x_2 + ... + w_n x_n \]
+
+kde \( w_i \) sú koeficienty modelu a \( x_i \) vstupné premenné.
+
+---
+
+### 🧪 Príklad 1: Jednoduchá lineárna regresia (1 vstup)
+
+```python
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_squared_error
+
+# Vytvorenie modelu a natrénovanie na jednom atribúte (napr. BMI)
+model = LinearRegression()
+model.fit(X_train[['bmi']], y_train)
+
+# Predikcia hodnôt na testovacej množine
+preds = model.predict(X_test[['bmi']])
+
+# Vyhodnotenie modelu
+print("R2 score:", r2_score(y_test, preds))
+print("MSE:", mean_squared_error(y_test, preds))
+```
+
+---
+
+### 🧪 Príklad 2: Vizualizácia regresnej priamky
+
+```python
+import matplotlib.pyplot as plt
+
+# Skutočné vs. predikované hodnoty
+plt.scatter(X_test['bmi'], y_test, color='gray', label='Skutočné')
+plt.plot(X_test['bmi'], preds, color='red', label='Predikované')
+plt.xlabel('BMI')
+plt.ylabel('Cieľová premenná')
+plt.title('Lineárna regresia: BMI vs. cieľ')
+plt.legend()
+plt.show()
+```
+
+---
+
+### 🧪 Príklad 3: Zobrazenie koeficientov modelu
+
+```python
+# Koeficient (sklon priamky)
+print("Koeficient w1:", model.coef_[0])
+
+# Absolútna hodnota intercept (posun priamky)
+print("Intercept w0:", model.intercept_)
+```
+
+---
+
+### 🧪 Príklad 4: Viac atribútov naraz – multivariačná lineárna regresia
+
+```python
+# Všetky atribúty použité na tréning
+model_multi = LinearRegression()
+model_multi.fit(X_train, y_train)
+
+# Predikcia a vyhodnotenie
+preds_multi = model_multi.predict(X_test)
+print("R2 (viac atribútov):", r2_score(y_test, preds_multi))
+```
+
 
 ```python
 from sklearn.linear_model import LinearRegression
