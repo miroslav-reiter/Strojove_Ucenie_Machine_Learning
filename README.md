@@ -123,7 +123,7 @@ print(X_train.shape, X_test.shape)
 ---
 
 <a name="linearna-regresia"></a>
-## 📈 2. Lineárna regresia v scikit-learn
+## 📈 3. Lineárna regresia v scikit-learn
 
 Lineárna regresia je základný model na predikciu spojitých hodnôt. Jej cieľom je nájsť optimálnu priamku (alebo hyperrovinu), ktorá minimalizuje chybu medzi predikovanými a skutočnými hodnotami.
 
@@ -134,7 +134,7 @@ y = w_0 + w_1 x_1 + w_2 x_2 + \dots + w_n x_n
 $$
 
 
-kde $$w_i \)$$  sú koeficienty modelu a $$( x_i \)$$  vstupné premenné.
+kde $$(w_i \)$$  sú koeficienty modelu a $$( x_i \)$$  vstupné premenné.
 
 ---
 
