@@ -7,11 +7,12 @@
 ## 📘 Obsah kurzu
 
 01. [**🔍 Úvod do strojového učenia a regresie**](#uvod-ml-regresia))  
-02. [**🧠 Prehľad typov regresii**](#prehlad-typov-regresii)  
-03. [**📈 Lineárna regresia v scikit-learn**](#linearna-regresia)  
-04. [**🧮 Viacnásobná regresia a výber parametrov**](#viacnasobna-regresia)  
-05. [**📚 Zdroje a literatúra k strojovemu uceniu a scikit-learn**](#zdroje-a-literatura)  
-06. [**✅ Odporúčania ML, regresia a Scikit-Learn**](#odporucania)
+02. [**🧠 Prehľad typov regresii**](#prehlad-typov-regresii)
+03. [**📦 Hlavné datasety v sklearn.datasets**](#prehlad-datasety)  
+04. [**📈 Lineárna regresia v scikit-learn**](#linearna-regresia)  
+05. [**🧮 Viacnásobná regresia a výber parametrov**](#viacnasobna-regresia)  
+06. [**📚 Zdroje a literatúra k strojovemu uceniu a scikit-learn**](#zdroje-a-literatura)  
+07. [**✅ Odporúčania ML, regresia a Scikit-Learn**](#odporucania)
 
 ---
 
@@ -124,9 +125,66 @@ print(X_train.shape, X_test.shape)
 ```
 
 ---
+<a name="prehlad-datasety"></a>
+## 📦 2. Hlavné datasety v `sklearn.datasets`
+
+> Prehľad zabudovaných datasetov v knižnici `scikit-learn`, rozdelený podľa typu úloh.
+
+### 📦 Klasifikačné datasety (pre úlohy rozpoznávania kategórií)
+
+| Dataset | Popis |
+|--------|-------|
+| `load_iris()` | 🪻 Iris – klasifikácia druhov kvetov na základe rozmerov okvetia. |
+| `load_digits()` | 🔢 Rukou písané číslice (0–9) – obrázky 8x8 pixelov. |
+| `load_wine()` | 🍷 Chemické vlastnosti vín – rozpoznanie odrody. |
+| `load_breast_cancer()` | 🧪 Dáta o nádoroch prsníka – klasifikácia malígnych a benígnych. |
+| `fetch_20newsgroups()` | 📰 Textové dáta z 20 kategórií diskusných skupín. |
+| `fetch_20newsgroups_vectorized()` | 🔤 Predspracovaná verzia predchádzajúceho. |
+| `fetch_covtype()` | 🌲 Lesné krytie – predikcia typu vegetácie na základe geografických znakov. |
+| `fetch_kddcup99()` | 🌐 Sieťový traffic – detekcia anomálií a útokov. |
+| `fetch_lfw_people()` | 👤 Rozpoznávanie osôb na obrázkoch (LFW). |
+| `fetch_lfw_pairs()` | 👥 Porovnávanie tvárí – sú na dvoch obrázkoch rovnaké osoby? |
+| `fetch_olivetti_faces()` | 🧑‍🦱 Dataset tvárí – rozpoznávanie identít. |
+| `fetch_rcv1()` | 📰 Reuters texty – multilabel klasifikácia tém. |
+
+### 📈 Regresné datasety
+
+| Dataset | Popis |
+|--------|-------|
+| `load_diabetes()` | 🧬 Diabetes – predikcia progresie choroby. |
+| `fetch_california_housing()` | 🏘️ Predikcia cien nehnuteľností v Kalifornii. |
+
+### 💪 Iné a špeciálne datasety
+
+| Dataset | Popis |
+|--------|-------|
+| `load_linnerud()` | 🏃‍♂️ Fyzické výkony a fyziologické dáta. |
+| `fetch_species_distributions()` | 🐦 Výskyt druhov podľa geografie. |
+| `load_files()` | 📂 Načítanie vlastných textových datasetov. |
+
+### 🖼️ Datasety s obrázkami
+
+| Dataset | Popis |
+|--------|-------|
+| `load_sample_image()` | 🖼️ Jednotlivý ukážkový obrázok (napr. čínska záhrada). |
+| `load_sample_images()` | 🧩 Súbor ukážkových obrázkov. |
+
+### ⚙️ Utility a nástroje
+
+| Funkcia | Popis |
+|--------|-------|
+| `clear_data_home()` | 🧹 Vymaže cache dát scikit-learn. |
+| `get_data_home()` | 📁 Získa cestu k dátovej zložke. |
+| `fetch_openml()` | 🌐 Načítanie datasetov z OpenML. |
+| `fetch_file()` | 📥 Stiahne súbor z webu do cache. |
+| `load_svmlight_file()` | 📄 Načítanie SVMlight/libSVM formátu. |
+| `load_svmlight_files()` | 📄 Viacero SVMlight súborov. |
+| `dump_svmlight_file()` | 💾 Export dát do SVMlight. |
+
+> Viac info: [sklearn.datasets API](https://scikit-learn.org/stable/api/sklearn.datasets.html#module-sklearn.datasets)
 
 <a name="prehlad-typov-regresii"></a>
-## 🧠 2. Prehľad typov regresií
+## 🧠 3. Prehľad typov regresií
 
 Regresné modely sú určené na predpovedanie spojitých hodnôt. V tejto kapitole si predstavíme základné typy regresií, ich výhody, nevýhody a ukážeme si jednoduché príklady.
 
@@ -194,7 +252,7 @@ print("Lasso R2:", lasso_model.score(X_test, y_test))
 
 
 <a name="linearna-regresia"></a>
-## 📈 3. Lineárna regresia v scikit-learn
+## 📈 4. Lineárna regresia v scikit-learn
 
 Lineárna regresia je základný model na predikciu spojitých hodnôt. Jej cieľom je nájsť optimálnu priamku (alebo hyperrovinu), ktorá minimalizuje chybu medzi predikovanými a skutočnými hodnotami.
 
@@ -300,7 +358,7 @@ plt.show()
 ---
 
 <a name="viacnasobna-regresia"></a>
-## 🧮 4. Viacnásobná regresia a výber parametrov
+## 🧮 5. Viacnásobná regresia a výber parametrov
 
 Viacnásobná lineárna regresia rozširuje jednoduchú regresiu na viac vstupných premenných. Umožňuje lepšie modelovať komplexnejšie vzťahy v dátach.
 
