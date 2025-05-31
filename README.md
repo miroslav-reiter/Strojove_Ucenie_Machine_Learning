@@ -122,6 +122,73 @@ print(X_train.shape, X_test.shape)
 
 ---
 
+## 🧠 2. Prehľad typov regresií
+
+Regresné modely sú určené na predpovedanie spojitých hodnôt. V tejto kapitole si predstavíme základné typy regresií, ich výhody, nevýhody a ukážeme si jednoduché príklady.
+
+### 📊 Typy regresie:
+
+| Typ regresie               | Popis | Príklad použitia |
+|----------------------------|-------|------------------|
+| Jednoduchá lineárna       | 1 vstupná premenná, lineárny vzťah | výška → hmotnosť |
+| Viacnásobná lineárna      | Viac vstupných premenných | vek, BMI, príjem → krvný tlak |
+| Polynomiálna regresia     | Obsahuje nelineárne členy (x², x³, ...) | vek² → výdavky |
+| Ridge regresia            | Lineárna regresia s L2 regularizáciou | vysokodimenzionálne dáta |
+| Lasso regresia            | Lineárna s L1 regularizáciou (výber premenných) | selekcia atribútov |
+| ElasticNet                | Kombinácia L1 a L2 | kompromis medzi Ridge a Lasso |
+| Logaritmická regresia     | Založená na logaritmickej transformácii | výskyt udalostí |
+| Robustná regresia         | Odolná voči extrémnym hodnotám (outlierom) | analýza miezd |
+
+---
+
+### 🧪 Príklad: Polynomiálna regresia
+
+```python
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.pipeline import make_pipeline
+from sklearn.linear_model import LinearRegression
+
+# Používame len jeden atribút pre prehľadnosť
+X_poly = X_train[['bmi']]
+y_poly = y_train
+
+# Vytvorenie modelu s polynómom 2. stupňa
+poly_model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
+poly_model.fit(X_poly, y_poly)
+
+# Predikcia
+X_test_poly = X_test[['bmi']]
+y_pred_poly = poly_model.predict(X_test_poly)
+```
+
+---
+
+### 🧪 Príklad: Ridge a Lasso regresia
+
+```python
+from sklearn.linear_model import Ridge, Lasso
+
+# Ridge (L2 regularizácia)
+ridge_model = Ridge(alpha=1.0)
+ridge_model.fit(X_train, y_train)
+print("Ridge R2:", ridge_model.score(X_test, y_test))
+
+# Lasso (L1 regularizácia)
+lasso_model = Lasso(alpha=0.1)
+lasso_model.fit(X_train, y_train)
+print("Lasso R2:", lasso_model.score(X_test, y_test))
+```
+
+➡️ Každý regresný model sa hodí na iný typ úlohy a dáta. Dôležité je analyzovať:
+- linearitu vzťahu medzi premennými,
+- počet a koreláciu vstupov,
+- prítomnosť extrémnych hodnôt,
+- a požiadavky na interpretáciu vs. výkon.
+
+➡️ V ďalšej časti sa pozrieme na **lineárnu regresiu** v praxi – jej výpočet, vizualizáciu a interpretáciu.
+
+
+
 <a name="linearna-regresia"></a>
 ## 📈 3. Lineárna regresia v scikit-learn
 
@@ -229,12 +296,77 @@ plt.show()
 ---
 
 <a name="viacnasobna-regresia"></a>
-## 🧮 3. Viacnásobná regresia a výber premenných
+## 🧮 4. Viacnásobná regresia a výber parametrov
 
-- Vysvetlenie konceptu: viacero vstupov (features)
-- Normalizácia: `StandardScaler`
-- Výber relevantných premenných: `SelectKBest`, `RFE`, `feature_importances_`
-- Viacnásobná regresia v scikit-learn
+Viacnásobná lineárna regresia rozširuje jednoduchú regresiu na viac vstupných premenných. Umožňuje lepšie modelovať komplexnejšie vzťahy v dátach.
+
+### 📐 Rovnica viacnásobnej lineárnej regresie
+
+```
+y = w₀ + w₁·x₁ + w₂·x₂ + … + wₙ·xₙ
+```
+
+kde `x₁...xₙ` sú vstupné atribúty a `w₁...wₙ` ich koeficienty (váhy).
+
+---
+
+### 🧪 Príklad 1: Tréning viacnásobného modelu so všetkými atribútmi
+
+```python
+from sklearn.linear_model import LinearRegression
+
+model_multi = LinearRegression()
+model_multi.fit(X_train, y_train)
+
+# Predikcia
+y_pred = model_multi.predict(X_test)
+
+# Vyhodnotenie
+from sklearn.metrics import r2_score, mean_squared_error
+print("R2:", r2_score(y_test, y_pred))
+print("MSE:", mean_squared_error(y_test, y_pred))
+```
+
+---
+
+### 🧪 Príklad 2: Normalizácia vstupov pomocou StandardScaler
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+model_scaled = LinearRegression()
+model_scaled.fit(X_train_scaled, y_train)
+
+# Predikcia a vyhodnotenie
+y_pred_scaled = model_scaled.predict(X_test_scaled)
+print("R2 (škálované):", r2_score(y_test, y_pred_scaled))
+```
+
+---
+
+### 🧪 Príklad 3: Výber najlepších atribútov pomocou SelectKBest
+
+```python
+from sklearn.feature_selection import SelectKBest, f_regression
+
+# Vyber 5 najrelevantnejších atribútov
+selector = SelectKBest(score_func=f_regression, k=5)
+X_train_selected = selector.fit_transform(X_train_scaled, y_train)
+X_test_selected = selector.transform(X_test_scaled)
+
+model_kbest = LinearRegression()
+model_kbest.fit(X_train_selected, y_train)
+print("R2 (SelectKBest):", model_kbest.score(X_test_selected, y_test))
+```
+
+➡️ Výber atribútov pomáha znížiť zložitosť modelu, odstrániť šum a zvýšiť interpretovateľnosť.
+➡️ Normalizácia zaisťuje rovnaké váhové podmienky pre všetky atribúty.
+➡️ Odporúčame testovať rôzne kombinácie atribútov a porovnávať metriky.
+
 
 ```python
 from sklearn.preprocessing import StandardScaler
