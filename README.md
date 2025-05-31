@@ -80,6 +80,39 @@ model.fit(X_selected, y_train)
 
 ---
 
+## 📚 Zdroje a literatúra k strojovému učeniu a scikit-learn
+
+### 📘 Top knihy – Anglicky
+
+| Názov | Autor | Popis |
+|-------|-------|-------|
+| Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow | Aurélien Géron | Najkomplexnejšia kniha pre ML v Pythone. Obsahuje teóriu aj praktické príklady. |
+| Python Machine Learning | Sebastian Raschka, Vahid Mirjalili | Kniha zameraná na praktickú implementáciu ML algoritmov v Pythone. |
+| Introduction to Machine Learning with Python | Andreas Müller, Sarah Guido | Výborný úvod do ML so zameraním na scikit-learn. |
+| Machine Learning Yearning | Andrew Ng | Strategický pohľad na budovanie ML systémov (voľne dostupné PDF). |
+| Pattern Recognition and Machine Learning | Christopher Bishop | Hlbšie teoretické základy ML. |
+
+### 📙 Knihy a zdroje – Česky a Slovensky
+
+| Názov | Autor | Popis |
+|-------|-------|-------|
+| Učíme se strojové učení | Ondřej Vaňo | Česká príručka s praktickými úlohami v Pythone. |
+| Základy strojového učenia | kol. autorov | Úvod do ML a základné modely v češtine. |
+| Python pro analýzu dat | Wes McKinney (CZ preklad) | Zamerané na prácu s dátami v Pandas, vhodné ako základ pre ML. |
+
+> 🧠 Poznámka: Československé tituly sú často pre začiatočníkov a pomáhajú pochopiť základy v rodnom jazyku.
+
+### 🌐 Oficiálna dokumentácia a online zdroje
+
+| Názov | Popis | Odkaz |
+|-------|--------|--------|
+| scikit-learn User Guide | Oficiálna dokumentácia a príručky | [scikit-learn.org](https://scikit-learn.org/stable/user_guide.html) |
+| scikit-learn API Reference | Detailné API popisy tried a funkcií | [scikit-learn.org API](https://scikit-learn.org/stable/modules/classes.html) |
+| sklearn-examples GitHub | Príklady projektov s použitím scikit-learn | [github.com/scikit-learn](https://github.com/scikit-learn/scikit-learn) |
+| Kaggle Learn ML | Online micro-kurzy a súťaže | [kaggle.com/learn](https://www.kaggle.com/learn/intro-to-machine-learning) |
+| Machine Learning Mastery | Blog a návody pre praktické ML | [machinelearningmastery.com](https://machinelearningmastery.com) |
+| Google AI Hub | Nástroje, datasetové repozitáre a príklady | [ai.google](https://ai.google/tools/) |
+
 ## 📚 Zdroje a odporúčania
 
 - [scikit-learn user guide](https://scikit-learn.org/stable/user_guide.html)
@@ -96,5 +129,3 @@ model.fit(X_selected, y_train)
 
 ---
 
-> Vytvoril: Miroslav Reiter (c) 2025  
-> Pre kurz: [VITA Academy – Python ML kurz (začiatočník)](https://www.vita.sk)
