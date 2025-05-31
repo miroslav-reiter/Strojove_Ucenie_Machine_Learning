@@ -6,9 +6,12 @@
 
 ## 📘 Obsah kurzu
 
-01. [**🔍 Úvod do strojového učenia a regresie**](#uvod-ml-regresia)  
-02. [**📈 Lineárna regresia v scikit-learn**](#linearna-regresia)  
-03. [**🧮 Viacnásobná regresia a výber premenných**](#viacnasobna-regresia)
+01. [**🔍 Úvod do strojového učenia a regresie**](#uvod-ml-regresia))  
+02. [**🧠 Prehľad typov regresii**](#prehlad-typov-regresii)  
+03. [**📈 Lineárna regresia v scikit-learn**](#linearna-regresia)  
+04. [**🧮 Viacnásobná regresia a výber parametrov**](#viacnasobna-regresia)  
+05. [**📚 Zdroje a literatúra k strojovemu uceniu a scikit-learn**](#zdroje-a-literatura)  
+06. [**✅ Odporúčania ML, regresia a Scikit-Learn**](#odporucania)
 
 ---
 
@@ -122,6 +125,7 @@ print(X_train.shape, X_test.shape)
 
 ---
 
+<a name="prehlad-typov-regresii"></a>
 ## 🧠 2. Prehľad typov regresií
 
 Regresné modely sú určené na predpovedanie spojitých hodnôt. V tejto kapitole si predstavíme základné typy regresií, ich výhody, nevýhody a ukážeme si jednoduché príklady.
@@ -396,6 +400,7 @@ print("Mean Squared Error:", mean_squared_error(y_test, preds))
 
 ---
 
+<a name="zdroje-a-literatura"></a>
 ## 📚 Zdroje a literatúra k strojovému učeniu a scikit-learn
 
 ### 📘 Top knihy – Anglicky
@@ -433,8 +438,8 @@ print("Mean Squared Error:", mean_squared_error(y_test, preds))
 | Towards Data Science | Blogy a tutoriály od expertov z ML komunity | [towardsdatascience.com](https://towardsdatascience.com) |
 
 ---
-
-## ✅ Odporúčania
+<a name="odporucania"></a>
+## ✅ Odporúčania ML, regresia a Scikit-Learn
 
 - 📦 Použi `pip install scikit-learn pandas matplotlib` na inštaláciu
 - 🧪 Pracuj v prostredí Jupyter Notebook (napr. Jetbrains Datalore, VS Code, Google Colab)
