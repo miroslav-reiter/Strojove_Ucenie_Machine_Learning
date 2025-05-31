@@ -15,11 +15,95 @@
 <a name="uvod-ml-regresia"></a>
 ## 🔍 1. Úvod do strojového učenia a regresie
 
-- Vysvetlenie základných pojmov: supervised learning, tréning, testovanie
-- Rozdiel medzi regresiou a klasifikáciou
-- Typy regresií (lineárna, viacnásobná, polynomiálna...)
-- Prehľad knižnice scikit-learn a jej moduly
-- Príprava datasetu: rozdelenie na tréning/test, čistenie, transformácia
+V tejto úvodnej časti sa zoznámime so základnými pojmami, rozdielmi medzi typmi ML úloh, knižnicou scikit-learn a jednoduchými praktickými príkladmi.
+
+### 🎯 Základné pojmy
+
+- **Supervised learning (učenie s učiteľom)** – algoritmus sa učí na základe označených dát (X vstupy, y výstupy)
+- **Training (tréning)** – fáza učenia modelu na základe historických údajov
+- **Testing (testovanie)** – overenie výkonu modelu na nových údajoch, ktoré nevidel
+- **Regresia vs. klasifikácia**:
+  - *Regresia* predpovedá **spojité hodnoty** (napr. cena, teplota)
+  - *Klasifikácia* predpovedá **kategórie** (napr. áno/nie, trieda A/B/C)
+
+### 🧩 Typy regresií (prehľad)
+
+- **Jednoduchá lineárna regresia** – 1 vstupná premenná (napr. výška → hmotnosť)
+- **Viacnásobná lineárna regresia** – viac vstupov (napr. výška, vek, BMI → hmotnosť)
+- **Polynomiálna regresia** – rozšírenie lineárnej pomocou nelineárnych zložiek
+
+---
+
+### 🧪 Príklad 1: Načítanie dát a základná štatistika
+
+```python
+from sklearn.datasets import load_diabetes
+import pandas as pd
+
+# Načítanie datasetu (zabudovaný dataset s údajmi o cukrovke)
+data = load_diabetes(as_frame=True)
+df = data.frame
+
+# Zobrazenie prvých 5 riadkov
+print(df.head())
+
+# Základná štatistika
+print(df.describe())
+```
+
+---
+
+### 🧪 Príklad 2: Rozdelenie dát na tréningovú a testovaciu množinu
+
+```python
+from sklearn.model_selection import train_test_split
+
+X = df.drop(columns='target')  # vstupy (atribúty)
+y = df['target']               # cieľová premenná
+
+# Rozdelenie na 80 % tréning a 20 % test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+print("Tréningová množina:", X_train.shape)
+print("Testovacia množina:", X_test.shape)
+```
+
+---
+
+### 🧪 Príklad 3: Základná vizualizácia vzťahu medzi atribútom a cieľom
+
+```python
+import matplotlib.pyplot as plt
+
+# Porovnanie BMI a cieľovej hodnoty
+plt.scatter(X['bmi'], y, color='green', alpha=0.5)
+plt.xlabel('BMI')
+plt.ylabel('Cieľová premenná (target)')
+plt.title('Vzťah medzi BMI a cieľom')
+plt.grid(True)
+plt.show()
+```
+
+---
+
+### 🧪 Príklad 4: Prehľad funkcií knižnice scikit-learn
+
+```python
+import sklearn
+
+# Verzia knižnice
+print("scikit-learn verzia:", sklearn.__version__)
+
+# Skontroluj dostupné moduly: linear_model, model_selection, metrics...
+from sklearn import linear_model, metrics, preprocessing
+print(dir(linear_model))  # dostupné modely v linear_model
+```
+
+Týmto sme získali základný prehľad o tom:
+- ako vyzerajú dáta,
+- ako sa rozdeľujú na tréning a test,
+- ako vizualizovať vzťahy a
+- čo ponúka knižnica scikit-learn.
 
 ```python
 from sklearn.datasets import load_diabetes
