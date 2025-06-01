@@ -376,6 +376,7 @@ Viacnásobná lineárna regresia rozširuje jednoduchú regresiu na viac vstupn�
 ### 📐 Rovnica viacnásobnej lineárnej regresie
 
 **Strojové učenie / ML notácia:** (používaná v machine learning, neurónových sieťach)    
+
 $$  
 y = w₀ + w₁·x₁ + w₂·x₂ + … + wₙ·xₙ  
 $$  
@@ -383,6 +384,7 @@ $$
 kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (váhy/weights), často sa nepíše ε (predikcia bez explicitnej chyby).
 
 **Matematická a štatistická notácia:** (používaná v štatistike, ekonometrii, vede)  
+
 $$  
 y = β₀ + β₁ x₁ + β2 x₂ + ⋯ + βₙ xₙ + ε  
 $$  
