@@ -258,11 +258,15 @@ Lineárna regresia je základný model na predikciu spojitých hodnôt. Jej cie�
 
 ### 📐 Rovnica lineárnej regresie  
 
+**Strojové učenie / ML notácia:** (používaná v machine learning, neurónových sieťach)  
+
 $$
 y = w_0 + w_1 x_1 + w_2 x_2 + \dots + w_n x_n  
 $$
 
 kde $$(w_i \)$$  sú koeficienty modelu a $$( x_i \)$$  vstupné premenné.  
+
+**Matematická a štatistická notácia:** (používaná v štatistike, ekonometrii, vede)
 
 $$ 
 y = β0 + β1.x1 + β2.x2 + ⋯ + βn.xn + ε  
