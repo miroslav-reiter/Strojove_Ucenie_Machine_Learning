@@ -382,7 +382,8 @@ kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (v�
 •  $$β_1, β_2, ..., β_n$$ – regresné koeficienty (váhy premenných)  
 •  $$ε$$ – náhodná chyba (reziduál)  
 
-Príklad pre 3 premenné:
+Príklad pre 3 premenné:  
+
 $$
 y = β0 + β1 x1 + β2 x2 + β3 x3 + ε
 $$
