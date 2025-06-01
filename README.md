@@ -253,7 +253,6 @@ print("Lasso R2:", lasso_model.score(X_test, y_test))
 
 <a name="regresne-rovnice"></a>
 ## 📐 4. Regresné rovnice v strojovom učení
-# 📘 Cheatsheet: Regresné rovnice v strojovom učení
 
 ### 1️⃣ Lineárna regresia (Simple Linear Regression)
 **Rovnica:**  
