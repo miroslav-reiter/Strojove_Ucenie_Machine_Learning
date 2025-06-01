@@ -95,20 +95,61 @@ plt.show()
 
 ```python
 import sklearn
+#sklearn.show_versions()
 
 # Verzia knižnice
 print("scikit-learn verzia:", sklearn.__version__)
 
 # Skontroluj dostupné moduly: linear_model, model_selection, metrics...
 from sklearn import linear_model, metrics, preprocessing
+print(dir(sklearn))
 print(dir(linear_model))  # dostupné modely v linear_model
 ```
 
-Týmto sme získali základný prehľad o tom:
-- ako vyzerajú dáta,
-- ako sa rozdeľujú na tréning a test,
-- ako vizualizovať vzťahy a
-- čo ponúka knižnica scikit-learn.
+### 🧩 Prehľad hlavných modulov scikit-learn
+
+## 🧩 Prehľad modulov scikit-learn s kategorizáciou
+
+| Modul                  | Popis                                                                 | Príklad použitia                                 | Kategória                        |
+|------------------------|-----------------------------------------------------------------------|--------------------------------------------------|----------------------------------|
+| `datasets`             | Vstavané datasety a generovanie syntetických údajov                   | `load_iris()`, `make_classification()`           | Základný modul                   |
+| `model_selection`      | Rozdelenie dát, validácia, ladenie parametrov                         | `train_test_split()`, `GridSearchCV()`           | Základný modul                   |
+| `metrics`              | Metriky pre hodnotenie modelov                                       | `accuracy_score()`, `r2_score()`                 | Základný modul                   |
+| `linear_model`         | Lineárna a logistická regresia                                        | `LinearRegression()`, `LogisticRegression()`     | Základný modul                   |
+| `tree`                 | Rozhodovacie stromy                                                   | `DecisionTreeClassifier()`                       | Základný modul                   |
+| `ensemble`             | Zložené modely (RandomForest, Boosting...)                            | `RandomForestClassifier()`                       | Základný modul                   |
+| `svm`                  | Support Vector Machines                                               | `SVC()`, `SVR()`                                 | Základný modul                   |
+| `neighbors`            | Najbližší susedia                                                     | `KNeighborsClassifier()`                         | Základný modul                   |
+| `naive_bayes`          | Naívne Bayesove klasifikátory                                         | `GaussianNB()`                                   | Základný modul                   |
+| `neural_network`       | Viacvrstvové neurónové siete                                          | `MLPClassifier()`, `MLPRegressor()`              | Základný modul                   |
+| `preprocessing`        | Úprava dát: škálovanie, normalizácia, kódovanie                       | `StandardScaler()`, `OneHotEncoder()`            | Základný modul                   |
+| `impute`               | Doplňovanie chýbajúcich hodnôt                                       | `SimpleImputer()`, `KNNImputer()`                | Základný modul                   |
+| `pipeline`             | Zreťazenie krokov (transformácie + model)                             | `Pipeline([...])`                                | Základný modul                   |
+| `feature_selection`    | Výber najdôležitejších vlastností                                     | `SelectKBest()`, `RFE()`                         | Základný modul                   |
+| `feature_extraction`   | Extrakcia znakov z textu, obrázkov                                    | `CountVectorizer()`, `TfidfTransformer()`        | Základný modul                   |
+| `decomposition`        | Redukcia dimenzie (napr. PCA)                                         | `PCA()`, `TruncatedSVD()`                        | Pokročilejší modul              |
+| `manifold`             | Nelineárna redukcia dimenzie                                          | `TSNE()`, `Isomap()`                             | Pokročilejší modul              |
+| `cluster`              | Klastrovanie bez dozorovania                                          | `KMeans()`, `DBSCAN()`                           | Pokročilejší modul              |
+| `mixture`              | Zmesové modely (pravdepodobnostné klastrovanie)                      | `GaussianMixture()`                              | Pokročilejší modul              |
+| `discriminant_analysis`| LDA a QDA pre viac tried                                              | `LinearDiscriminantAnalysis()`                   | Pokročilejší modul              |
+| `multiclass`           | Rozšírenia pre viac ako 2 tried                                       | `OneVsRestClassifier()`                          | Pokročilejší modul              |
+| `multioutput`          | Modely s viacerými výstupmi                                           | `MultiOutputClassifier()`                        | Pokročilejší modul              |
+| `experimental`         | Funkcie v experimentálnom stave                                       | `HistGradientBoostingClassifier()`               | Experimentálny modul            |
+| `inspection`           | Interpretácia modelov                                                 | `permutation_importance()`                       | Pokročilejší modul              |
+| `compose`              | Kombinovanie transformácií                                            | `ColumnTransformer()`                            | Pokročilejší modul              |
+| `random_projection`    | Redukcia dimenzie náhodnou projekciou                                | `GaussianRandomProjection()`                     | Pokročilejší modul              |
+| `gaussian_process`     | Modely založené na Gaussových procesoch                               | `GaussianProcessRegressor()`                     | Pokročilejší modul              |
+| `isotonic`             | Izotonická (monotónna) regresia                                       | `IsotonicRegression()`                           | Pokročilejší modul              |
+| `kernel_approximation` | Približné jadrové transformácie                                       | `RBFSampler()`                                   | Pokročilejší modul              |
+| `kernel_ridge`         | Kombinácia ridge a kernel metód                                      | `KernelRidge()`                                  | Pokročilejší modul              |
+| `externals`            | Interné závislosti (napr. `joblib`)                                   | –                                                | Podporný modul                  |
+| `exceptions`           | Definície chýb a výnimiek                                             | –                                                | Podporný modul                  |
+| `get_config`           | Získanie globálnej konfigurácie                                       | `get_config()`                                   | Konfigurácia a nástroje         |
+| `set_config`           | Nastavenie globálnej konfigurácie                                     | `set_config(display='diagram')`                  | Konfigurácia a nástroje         |
+| `config_context`       | Dočasná zmena konfigurácie                                            | `with config_context():`                         | Konfigurácia a nástroje         |
+| `show_versions`        | Výpis verzií knižnice a závislostí                                    | `show_versions()`                                | Konfigurácia a nástroje         |
+| `clone`                | Kopírovanie modelov                                                   | `clone(model)`                                   | Konfigurácia a nástroje         |
+
 
 ```python
 from sklearn.datasets import load_diabetes
