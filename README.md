@@ -6,13 +6,14 @@
 
 ## 📘 Obsah kurzu
 
-01. [**🔍 Úvod do strojového učenia a regresie**](#uvod-ml-regresia))  
-02. [**🧠 Prehľad typov regresii**](#prehlad-typov-regresii)
-03. [**📦 Hlavné datasety v sklearn.datasets**](#prehlad-datasety)  
-04. [**📈 Lineárna regresia v scikit-learn**](#linearna-regresia)  
-05. [**🧮 Viacnásobná regresia a výber parametrov**](#viacnasobna-regresia)  
-06. [**📚 Zdroje a literatúra k strojovemu uceniu a scikit-learn**](#zdroje-a-literatura)  
-07. [**✅ Odporúčania ML, regresia a Scikit-Learn**](#odporucania)
+01. [**🔍 Úvod do strojového učenia a regresie**](#uvod-ml-regresia))
+01. [**📦 Hlavné datasety v sklearn.datasets**](#prehlad-datasety) 
+01. [**🧠 Prehľad typov regresii**](#prehlad-typov-regresii)
+01. [**📐 Regresné rovnice v strojovom učení**](#regresne-rovnice)
+01. [**📈 Lineárna regresia v scikit-learn**](#linearna-regresia)  
+01. [**🧮 Viacnásobná regresia a výber parametrov**](#viacnasobna-regresia)  
+01. [**📚 Zdroje a literatúra k strojovemu uceniu a scikit-learn**](#zdroje-a-literatura)  
+01. [**✅ Odporúčania ML, regresia a Scikit-Learn**](#odporucania)
 
 ---
 
@@ -250,6 +251,116 @@ print("Lasso R2:", lasso_model.score(X_test, y_test))
 ➡️ V ďalšej časti sa pozrieme na **lineárnu regresiu** v praxi – jej výpočet, vizualizáciu a interpretáciu.
 
 
+<a name="regresne-rovnice"></a>
+## 📐 4. Regresné rovnice v strojovom učení
+# 📘 Cheatsheet: Regresné rovnice v strojovom učení
+
+### 1️⃣ Lineárna regresia (Simple Linear Regression)
+**Rovnica:**  
+`y = β₀ + β₁·x + ε`
+
+- `y` – predikovaná hodnota (napr. cena)
+- `x` – nezávislá premenná (napr. rozloha)
+- `β₀` – intercept (konštanta, keď x = 0)
+- `β₁` – koeficient sklonu (ako rýchlo y rastie s x)
+- `ε` – chyba modelu (residuum)
+
+✔ Príklad: Predikcia ceny domu na základe výmery.  
+✔ Príklad: Odhad spotreby energie podľa vonkajšej teploty.
+
+### 2️⃣ Viacnásobná lineárna regresia (Multiple Linear Regression)
+**Rovnica:**  
+`y = β₀ + β₁·x₁ + β₂·x₂ + ... + βₙ·xₙ + ε`
+
+- Používa viacero vstupných premenných (napr. príjem, lokalita, vek budovy)
+- Koeficienty `β₁...βₙ` vyjadrujú význam každého vstupu
+
+✔ Príklad: Predikcia ceny auta podľa veku, značky, výkonu a najazdených km.  
+✔ Príklad: Odhad výsledkov študenta podľa dochádzky, času učenia a spánku.
+
+### 3️⃣ Polynomiálna regresia (Polynomial Regression)
+**Rovnica:**  
+`y = β₀ + β₁·x + β₂·x² + ... + βₙ·xⁿ + ε`
+
+- Rozširuje lineárnu regresiu o vyššie mocniny `x`
+- Modeluje nelineárne závislosti
+
+✔ Príklad: Predikcia výšky rastliny v závislosti od času (krivka rastu).  
+✔ Príklad: Odhad výšky skoku v závislosti od rýchlosti a uhla odrazu.
+
+### 4️⃣ Ridge regresia (L2 regularizácia)
+**Rovnica:**  
+`minimize: ||y - Xβ||² + λ·||β||²`
+
+- Penalizuje veľké koeficienty pomocou L2 normy
+- Pomáha pri multikolinearite a znižuje pretrénovanie
+
+✔ Vhodná ak máte mnoho podobných vstupných premenných.  
+✔ Príklad: Predikcia nákladov na marketing z desiatok prepojených metrík.
+
+### 5️⃣ Lasso regresia (L1 regularizácia)
+**Rovnica:**  
+`minimize: ||y - Xβ||² + λ·|β|`
+
+- Penalizuje súčet absolútnych hodnôt koeficientov
+- Pomáha automaticky vyberať dôležité premenné (niektoré β = 0)
+
+✔ Užitočné pri veľkom počte premenných a potrebe výberu.  
+✔ Príklad: Výber najvplyvnejších faktorov ovplyvňujúcich cenu nehnuteľnosti.
+
+### 6️⃣ Elastic Net
+**Rovnica:**  
+`minimize: ||y - Xβ||² + λ₁·|β| + λ₂·||β||²`
+
+- Kombinácia Ridge a Lasso
+- Lepšia stabilita pri vysoko korelovaných premenných
+
+✔ Zvyčajne sa nastavujú váhy (α, λ) cez cross-validation.  
+✔ Príklad: Predikcia predaja produktov pri vysoko závislých marketingových faktoroch.
+
+### 7️⃣ Logaritmická regresia (pre log-transformed y)
+**Rovnica:**  
+`ln(y) = β₀ + β₁·x + ε`
+
+- Používa sa ak cieľová premenná má exponenciálne rozdelenie
+- Výstup sa často exponuje späť: `y = e^(predikcia)`
+
+✔ Príklad: Predikcia populácie alebo ceny pri log-normálnom rozdelení.  
+✔ Príklad: Odhad rastu používateľov novej aplikácie.
+
+### 8️⃣ Regresia pomocou rozhodovacích stromov
+**Princíp:**  
+Nie je založená na rovniciach, ale na rekurzívnom delení:
+
+```python
+if x₁ < 2.5: predikcia = 100
+elif x₂ > 5: predikcia = 200
+```
+
+✔ Výhoda: nepotrebuje škálovanie dát ani lineárne vzťahy.  
+✔ Príklad: Predikcia výdavkov domácnosti na základe segmentácie podľa veku a príjmu.
+
+### 9️⃣ Support Vector Regression (SVR)
+**Princíp:**  
+Nájsť funkciu `f(x)`, ktorá sa líši od `y` o maximálne `ε` a je čo najplochšia.
+
+- Umožňuje nelineárne vzťahy pomocou kernelov (napr. RBF)
+- Funguje dobre aj pri vysokorozmerných dátach
+
+✔ Príklad: Predikcia cien akcií s využitím RBF kernelu.  
+✔ Príklad: Odhaľovanie trendov v meteorologických dátach.
+
+### 🔟 K-nearest neighbors regresia (KNN Regression)
+**Rovnica:**  
+`y_pred = priemer(y susedov)`
+
+- Predikcia = priemer výstupov najbližších `K` bodov
+- Funguje na základe vzdialenosti medzi dátami
+
+✔ Neparametrický, jednoduchý model.  
+✔ Príklad: Odhad ceny Airbnb na základe okolitých ponúk.  
+✔ Príklad: Predikcia času dochádzky podľa najbližších historických dát.  
+✔ Príklad: Odhad návštevnosti podujatia na základe podobných predchádzajúcich akcií.
 
 <a name="linearna-regresia"></a>
 ## 📈 4. Lineárna regresia v scikit-learn
