@@ -385,7 +385,7 @@ kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (v�
 Príklad pre 3 premenné:  
 
 $$
-y = β0 + β1 x1 + β2 x2 + β3 x3 + ε
+y = β0 + β1.x1 + β2.x2 + β3.x3 + ε
 $$
 
 Používa sa napríklad na predikciu cien, výnosov alebo skóre na základe viacerých vstupných faktorov.
