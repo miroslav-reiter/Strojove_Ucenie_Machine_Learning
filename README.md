@@ -6,7 +6,7 @@
 
 ## 📘 Obsah kurzu
 
-01. [**🔍 Úvod do strojového učenia a regresie**](#uvod-ml-regresia))
+01. [**🔍 Úvod do strojového učenia a regresie**](#uvod-ml-regresia)
 01. [**📦 Hlavné datasety v sklearn.datasets**](#prehlad-datasety) 
 01. [**🧠 Prehľad typov regresii**](#prehlad-typov-regresii)
 01. [**📐 Regresné rovnice v strojovom učení**](#regresne-rovnice)
