@@ -256,19 +256,19 @@ print("Lasso R2:", lasso_model.score(X_test, y_test))
 
 Lineárna regresia je základný model na predikciu spojitých hodnôt. Jej cieľom je nájsť optimálnu priamku (alebo hyperrovinu), ktorá minimalizuje chybu medzi predikovanými a skutočnými hodnotami.
 
-### 📐 Rovnica lineárnej regresie
+### 📐 Rovnica lineárnej regresie  
 
 $$
-y = w_0 + w_1 x_1 + w_2 x_2 + \dots + w_n x_n
+y = w_0 + w_1 x_1 + w_2 x_2 + \dots + w_n x_n  
 $$
 
-kde $$(w_i \)$$  sú koeficienty modelu a $$( x_i \)$$  vstupné premenné.
+kde $$(w_i \)$$  sú koeficienty modelu a $$( x_i \)$$  vstupné premenné.  
 
-$$
-y = β0 + β1.x1 + β2.x2 + ⋯ + βn.xn + ε
+$$ 
+y = β0 + β1.x1 + β2.x2 + ⋯ + βn.xn + ε  
 $$
 
-Kde:
+Kde:  
 •	$$y$$ – závislá premenná  
 •	$$x$$ – nezávislá premenná  
 •	$$β₀$$ – intercept (konštanta)  
