@@ -364,11 +364,11 @@ Viacnásobná lineárna regresia rozširuje jednoduchú regresiu na viac vstupn�
 
 ### 📐 Rovnica viacnásobnej lineárnej regresie
 
-```
+$$
 y = w₀ + w₁·x₁ + w₂·x₂ + … + wₙ·xₙ
-```
+$$
 
-kde `x₁...xₙ` sú vstupné atribúty a `w₁...wₙ` ich koeficienty (váhy).
+kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (váhy/weights).
 
 ---
 
