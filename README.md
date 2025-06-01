@@ -248,8 +248,18 @@ print("Lasso R2:", lasso_model.score(X_test, y_test))
 - prítomnosť extrémnych hodnôt,
 - a požiadavky na interpretáciu vs. výkon.
 
-➡️ V ďalšej časti sa pozrieme na **lineárnu regresiu** v praxi – jej výpočet, vizualizáciu a interpretáciu.
-
+| Typ regresie                    | Rovnica / princíp                    | Typ modelu                          | Použitie                           | Príklad                                                                                  |
+|:--------------------------------|:-------------------------------------|:------------------------------------|:-----------------------------------|:-----------------------------------------------------------------------------------------|
+| Lineárna regresia               | y = β₀ + β₁·x + ε                    | Parametrický                        | Jednoduché lineárne vzťahy         | Cena domu podľa výmery, mzda podľa odpracovaných hodín, dopyt podľa ceny                 |
+| Viacnásobná lineárna regresia   | y = β₀ + β₁·x₁ + β₂·x₂ + ... + ε     | Parametrický                        | Viacero vstupov                    | Cena auta podľa veku, značky, výkonu, najazdených km, spotreby                           |
+| Polynomiálna regresia           | y = β₀ + β₁·x + β₂·x² + ... + ε      | Parametrický                        | Nelineárne vzťahy                  | Rast rastliny v čase, zmena teploty počas dňa, pokles výkonu batérie                     |
+| Ridge regresia (L2)             | min ||y - Xβ||² + λ·||β||²           | Parametrický (regularizovaný)       | Multikolinearita                   | Náklady na marketing, výkon modelu podľa počtu iterácií, výdavky podľa kategórií         |
+| Lasso regresia (L1)             | min ||y - Xβ||² + λ·|β|              | Parametrický (s výberom premenných) | Výber relevantných vstupov         | Predikcia ceny nehnuteľnosti, výber kľúčových premenných, zjednodušenie modelu           |
+| Elastic Net                     | min ||y - Xβ||² + λ₁·|β| + λ₂·||β||² | Parametrický (kombinovaný)          | Korelované premenné                | Predaj produktu z marketingových metrík, odhad výnosnosti reklamy, optimalizácia kampaní |
+| Logaritmická regresia           | ln(y) = β₀ + β₁·x + ε                | Parametrický (log-transformovaný)   | Log-normálne rozdelenie            | Predikcia populácie, rast cien v čase, počet používateľov aplikácie                      |
+| Rozhodovacie stromy             | Podmienkové delenie                  | Neparametrický                      | Segmentácia a rozhodovanie         | Výdavky domácnosti, odhad ceny podľa kategórií, správanie zákazníkov                     |
+| Support Vector Regression (SVR) | ε-insensitive loss + kernel          | Parametrický / Kernelový            | Nelineárne vzťahy, vysoká dimenzia | Predikcia cien akcií, komplexné vzťahy medzi trhmi, analýza trendov                      |
+| K-nearest neighbors (KNN)       | y_pred = priemer(y susedov)          | Neparametrický                      | Podobnosť podľa vzdialenosti       | Cena Airbnb podľa okolia, odporúčanie produktov, odhad nákladov na základe podobností    |
 
 <a name="regresne-rovnice"></a>
 ## 📐 4. Regresné rovnice v strojovom učení
@@ -576,7 +586,7 @@ print("R2 (SelectKBest):", model_kbest.score(X_test_selected, y_test))
 
 ➡️ Výber atribútov pomáha znížiť zložitosť modelu, odstrániť šum a zvýšiť interpretovateľnosť.
 ➡️ Normalizácia zaisťuje rovnaké váhové podmienky pre všetky atribúty.
-➡️ Odporúčame testovať rôzne kombinácie atribútov a porovnávať metriky.
+➡️ Odporúčam testovať rôzne kombinácie atribútov a porovnávať metriky.
 
 
 ```python
