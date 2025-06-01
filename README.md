@@ -666,10 +666,10 @@ model_kbest = LinearRegression()
 model_kbest.fit(X_train_selected, y_train)
 print("R2 (SelectKBest):", model_kbest.score(X_test_selected, y_test))
 ```
-
-➡️ Výber atribútov pomáha znížiť zložitosť modelu, odstrániť šum a zvýšiť interpretovateľnosť.
-➡️ Normalizácia zaisťuje rovnaké váhové podmienky pre všetky atribúty.
-➡️ Odporúčam testovať rôzne kombinácie atribútov a porovnávať metriky.
+ 
+➡️ Výber atribútov pomáha znížiť zložitosť modelu, odstrániť šum a zvýšiť interpretovateľnosť.  
+➡️ Normalizácia zaisťuje rovnaké váhové podmienky pre všetky atribúty.  
+➡️ Odporúčam testovať rôzne kombinácie atribútov a porovnávať metriky.  
 
 
 ```python
