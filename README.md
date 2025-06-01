@@ -370,6 +370,24 @@ $$
 
 kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (váhy/weights).
 
+$$
+y = β0 + β1 x1 + β2 x2 + ⋯ + βn xn + ε
+$$
+
+kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (váhy/weights).
+
+•  $$y$$ – závislá premenná (predikovaná hodnota)
+•  $$x_1, x_2, ..., x_n$$ – nezávislé premenné (vysvetľujúce premenné)
+•  $$β_0$$ – intercept (konštanta)
+•  $$β_1, β_2, ..., β_n$$ – regresné koeficienty (váhy premenných)
+•  $$ε$$ – náhodná chyba (reziduál)
+
+Príklad pre 3 premenné:
+$$
+y = β0 + β1 x1 + β2 x2 + β3 x3 + ε
+$$
+Používa sa napríklad na predikciu cien, výnosov alebo skóre na základe viacerých vstupných faktorov.
+
 ---
 
 ### 🧪 Príklad 1: Tréning viacnásobného modelu so všetkými atribútmi
