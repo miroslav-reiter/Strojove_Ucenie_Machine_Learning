@@ -364,22 +364,24 @@ Viacnásobná lineárna regresia rozširuje jednoduchú regresiu na viac vstupn�
 
 ### 📐 Rovnica viacnásobnej lineárnej regresie
 
+**Strojové učenie / ML notácia:** (používaná v machine learning, neurónových sieťach)
 $$
 y = w₀ + w₁·x₁ + w₂·x₂ + … + wₙ·xₙ
 $$
 
-kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (váhy/weights).
+kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (váhy/weights), často sa nepíše ε (predikcia bez explicitnej chyby).
 
+**Matematická a štatistická notácia:** (používaná v štatistike, ekonometrii, vede)
 $$
-y = β0 + β1 x1 + β2 x2 + ⋯ + βn xn + ε
+y = β₀ + β₁ x₁ + β2 x₂ + ⋯ + βₙ xₙ + ε
 $$
 
 kde $$x₁...xₙ$$ sú vstupné atribúty a $$w₁...wₙ$$ ich koeficienty (váhy/weights).
 
 •  $$y$$ – závislá premenná (predikovaná hodnota)  
-•  $$x_1, x_2, ..., x_n$$ – nezávislé premenné (vysvetľujúce premenné)  
-•  $$β_0$$ – intercept (konštanta)  
-•  $$β_1, β_2, ..., β_n$$ – regresné koeficienty (váhy premenných)  
+•  $$x₁, x₂, ..., xₙ$$ – nezávislé premenné (vysvetľujúce premenné)  
+•  $$β₀$$ – intercept (konštanta)  
+•  $$β₁, β₂, ..., βₙ$$ – regresné koeficienty (váhy premenných)  
 •  $$ε$$ – náhodná chyba (reziduál)  
 
 Príklad pre 3 premenné:  
