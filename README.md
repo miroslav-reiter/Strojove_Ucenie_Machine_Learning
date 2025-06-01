@@ -262,8 +262,19 @@ $$
 y = w_0 + w_1 x_1 + w_2 x_2 + \dots + w_n x_n
 $$
 
-
 kde $$(w_i \)$$  sú koeficienty modelu a $$( x_i \)$$  vstupné premenné.
+
+$$
+y = β0 + β1.x1 + β2.x2 + ⋯ + βn.xn + ε
+$$
+
+Kde:
+•	$$y$$ – závislá premenná  
+•	$$x$$ – nezávislá premenná  
+•	$$β₀$$ – intercept (konštanta)  
+•	$$β₁$$ – smernica (koeficient regresie)  
+•	$$ε$$ – náhodná chyba  
+
 
 ---
 
@@ -364,7 +375,7 @@ Viacnásobná lineárna regresia rozširuje jednoduchú regresiu na viac vstupn�
 
 ### 📐 Rovnica viacnásobnej lineárnej regresie
 
-**Strojové učenie / ML notácia:** (používaná v machine learning, neurónových sieťach)
+**Strojové učenie / ML notácia:** (používaná v machine learning, neurónových sieťach)  
 $$
 y = w₀ + w₁·x₁ + w₂·x₂ + … + wₙ·xₙ
 $$
