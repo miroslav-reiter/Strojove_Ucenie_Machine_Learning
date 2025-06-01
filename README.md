@@ -445,6 +445,10 @@ Kde:
 
 ### 📦 Prehľad modelov v `sklearn.linear_model`
 
+1. Začiatočníci: LinearRegression, LogisticRegression, Ridge, Lasso, SGDClassifier
+1. Pokročilí: ElasticNet, HuberRegressor, RANSACRegressor, BayesianRidge, QuantileRegressor
+1. Pri veľkých datasetoch alebo streamoch: SGDClassifier, PassiveAggressiveClassifier
+
 | Trieda / Model                        | Popis                                                                                 | Typ úlohy       | Poznámka / Vlastnosť                     |
 |--------------------------------------|----------------------------------------------------------------------------------------|------------------|-------------------------------------------|
 | `LinearRegression`                   | Obyčajná lineárna regresia (metóda najmenších štvorcov)                               | Regresia         | Bez regularizácie                         |
