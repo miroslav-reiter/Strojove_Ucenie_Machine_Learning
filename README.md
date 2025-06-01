@@ -106,9 +106,7 @@ print(dir(sklearn))
 print(dir(linear_model))  # dostupné modely v linear_model
 ```
 
-### 🧩 Prehľad hlavných modulov scikit-learn
-
-## 🧩 Prehľad modulov scikit-learn s kategorizáciou
+### 🧩 Prehľad hlavných modulov scikit-learn s kategorizáciou
 
 | Modul                  | Popis                                                                 | Príklad použitia                                 | Kategória                        |
 |------------------------|-----------------------------------------------------------------------|--------------------------------------------------|----------------------------------|
@@ -442,6 +440,44 @@ Kde:
 •	$$β₁$$ – smernica (koeficient regresie)  
 •	$$ε$$ – náhodná chyba  
 
+
+---
+
+### 📦 Prehľad modelov v `sklearn.linear_model`
+
+| Trieda / Model                        | Popis                                                                                 | Typ úlohy       | Poznámka / Vlastnosť                     |
+|--------------------------------------|----------------------------------------------------------------------------------------|------------------|-------------------------------------------|
+| `LinearRegression`                   | Obyčajná lineárna regresia (metóda najmenších štvorcov)                               | Regresia         | Bez regularizácie                         |
+| `Ridge`                              | Lineárna regresia s L2 regularizáciou                                                  | Regresia         | Trestá veľké koeficienty                 |
+| `Lasso`                              | Lineárna regresia s L1 regularizáciou                                                  | Regresia         | Môže úplne vynulovať niektoré koeficienty |
+| `ElasticNet`                         | Kombinácia L1 a L2 regularizácie                                                       | Regresia         | Flexibilné nastavenie penalizácie        |
+| `RidgeCV`                            | Ridge s automatickým výberom parametra cez cross-validáciu                            | Regresia         | Interná validácia                        |
+| `LassoCV`                            | Lasso s výberom optimálneho α                                                          | Regresia         | Automatické ladenie                      |
+| `ElasticNetCV`                       | ElasticNet s výberom parametrov cez cross-validáciu                                    | Regresia         | Automatický tuning                       |
+| `Lars`                               | Least Angle Regression – efektívna pre veľa premenných                                 | Regresia         | Alternatíva k Lasso                      |
+| `LarsCV`                             | Lars s výberom cez cross-validáciu                                                     | Regresia         |                                          |
+| `LassoLars`                          | Lasso implementované pomocou LARS algoritmu                                            | Regresia         | Rýchle pri veľkom počte vstupov          |
+| `LassoLarsCV`                        | Verzia s výberom parametra cez cross-validáciu                                        | Regresia         |                                          |
+| `LassoLarsIC`                        | Výber modelu cez AIC / BIC                                                            | Regresia         | Informačné kritériá                      |
+| `OrthogonalMatchingPursuit`         | Greedy algoritmus pre riedku regresiu                                                  | Regresia         | Pre riedke (sparse) modely               |
+| `OrthogonalMatchingPursuitCV`       | Verzia s výberom počtu koeficientov                                                    | Regresia         |                                          |
+| `HuberRegressor`                    | Robustná regresia odolná voči odľahlým hodnotám                                        | Regresia         | Kombinuje vlastnosti Ridge a L1          |
+| `RANSACRegressor`                   | Detekcia odľahlých hodnôt cez iteratívny výber vzoriek                                | Regresia         | Odolný voči šumu                         |
+| `TheilSenRegressor`                 | Robustná štatistická regresia                                                         | Regresia         | Pomalejší, ale stabilný pri outlieroch   |
+| `BayesianRidge`                     | Bayesovská lineárna regresia                                                          | Regresia         | Pravdepodobnostný prístup                |
+| `ARDRegression`                     | Automatické určenie relevantných premenných                                           | Regresia         | Automatické vynulovanie nerelevantných   |
+| `PoissonRegressor`                 | Poissonova regresia pre početné dáta                                                  | Regresia         | Generalizovaný lineárny model (GLM)      |
+| `GammaRegressor`                    | Regressia s gama rozdelením                                                           | Regresia         | GLM pre kladné spojité hodnoty           |
+| `TweedieRegressor`                  | Generalizovaný lineárny model pre rôzne distribúcie                                   | Regresia         | Flexibilné nastavenie parametra          |
+| `QuantileRegressor`                 | Kvantilová regresia – predikcia percentilu (nie priemeru)                             | Regresia         | Vhodné pre odhad intervalov              |
+| `LogisticRegression`                | Binárna alebo viactriedna klasifikácia                                                 | Klasifikácia     | Najčastejšie používaný lineárny klasifikátor |
+| `LogisticRegressionCV`             | LogisticRegression s výberom parametra cez cross-validáciu                            | Klasifikácia     | Automatické ladenie                      |
+| `Perceptron`                        | Jednoduchý neurón pre binárnu klasifikáciu                                            | Klasifikácia     | Bez skrytej vrstvy                       |
+| `PassiveAggressiveClassifier`       | Efektívny algoritmus pre veľké datasety (online učenie)                               | Klasifikácia     | Vhodné pre streamovanie dát              |
+| `PassiveAggressiveRegressor`        | Variant pre regresiu                                                                 | Regresia         | Online učenie                            |
+| `SGDClassifier`                     | Klasifikácia pomocou stochastického gradientu                                         | Klasifikácia     | Veľmi rýchly, online učenie              |
+| `SGDRegressor`                      | Regresia pomocou SGD                                                                  | Regresia         | Veľké datasety, regularizácia            |
+| `SGDOneClassSVM`                    | Jednotriedna detekcia anomálií pomocou SGD                                            | Anomálie         | Experimentálne                           |
 
 ---
 
